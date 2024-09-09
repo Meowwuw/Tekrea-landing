@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+.navbar {
+  background-color: #3E2956;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.1rem 3rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: #F9F8EF;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo h1 {
+  padding-top: 10px;
+  color: #F9F8EF;
+  font-size: 1.5rem;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 30px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  color: #F9F8EF;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos del menú hamburguesa */
+.hamburger {
+  display: none;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #3E2956;
+    width: 100%;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .nav-links.active {
+    display: flex; 
+  }
+
+  h1{
+    margin-top: 25px;
+  }
+
+  .hamburger {
+    display: block; /* Mostrar el botón hamburguesa en pantallas pequeñas */
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+  }
+
+  .hamburger div {
+    width: 25px;
+    height: 2px;
+    background-color: #F9F8EF;
+    margin: 5px;
+  }
+}

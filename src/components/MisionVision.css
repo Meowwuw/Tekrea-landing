@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
+
+.mision-vision {
+    background-color: #F9F8EF;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Ajustar en pantallas pequeñas */
+    gap: 20px; /* Espacio entre las columnas en pantallas pequeñas */
+}
+
+.mision, .vision {
+    width: 40%;
+}
+
+h2 {
+    font-size: 30px;
+    color: #3E2956;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mision, .vision {
+        width: 90%; /* Hacer que ocupen casi todo el ancho en pantallas pequeñas */
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
