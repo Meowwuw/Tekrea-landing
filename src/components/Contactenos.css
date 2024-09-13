@@ -1,75 +1,175 @@
-.contactenos {
-    background-color: #f9f8ef;
-    padding: 50px 20px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.gradient-section{
+  background: linear-gradient(to bottom, #3E2956, #29A0A0, #2CBFBF);
+  color: #fff;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  flex-wrap: nowrap; 
+  height: 500px;
+  padding: 50px 150px;
+}
+
+.contactenos{
+  background-color: #F9F8EF;
+}
+.contactenos-header {
+  width: 50%; 
+  text-align: left;
+  padding-bottom: 200px;
+}
+
+.contactenos-header h2 {
+  font-size: 2.5rem;
+  color: #F9F8EF;
+}
+
+.contactenos-header p {
+  font-size: 1.2rem;
+  color: #F9F8EF;
+}
+
+.map-container {
+  width: 50%; 
+  text-align: right;
+
+}
+
+.map-container iframe {
+  border: none;
+  width: 100%;
+  height: 300px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center; /* Cambiado de space-between a center */
+  gap: 150px; /* Añadir un espacio entre los elementos */
+  text-align: center;
+  padding: 50px 0;
+  width: 100%;
+}
+
+.info-item {
+  max-width: 300px;
+}
+
+.info-icon {
+  color: #3E2956;
+  margin-bottom: 10px;
+}
+
+.info-item h3 {
+  font-size: 1.2rem;
+  color: #3E2956;
+}
+
+.info-item p {
+  font-size: 1rem;
+  color: #333;
+}
+
+
+.social-media {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Esto asegura que el contenido esté alineado correctamente */
+  padding-left: 50px; /* Añade más espacio a la izquierda */
+  padding-bottom: 100px;
+}
+
+.social-media h2 {
+  font-size: 2rem;
+  color: #3E2956;
+  padding-bottom: 50px;
+}
+
+.social-media-links {
+  display: flex;
+  flex-direction: column; /* Para alinear los elementos en columna */
+  gap: 50px;
+
+}
+
+.social-item img {
+  width: 50px;
+  margin-right: 15px; /* Espacio entre el icono de la red social y el texto */
+}
+
+.social-item {
+  display: flex;
+  align-items: center; /* Centra verticalmente los iconos con los textos */
+}
+
+.social-item p {
+  color: #3E2956;
+  font-size: 1.2rem;
+}
+
+.contact-image {
+  margin-left: 200px;
+  margin-right: 150px; /* Espacio entre la imagen y el texto de redes sociales */
+  height: 450px;
+}
+
+@media screen and (max-width: 768px) {
+  .gradient-section {
+    flex-direction: column;
+    padding: 20px;
+    height: auto;
   }
-  
-  .contactenos-header {
+
+  .contactenos-header, .map-container {
+    width: 100%;
     text-align: center;
+    padding-bottom: 20px;
   }
-  
+
   .contactenos-header h2 {
-    font-size: 2.5rem;
-    color: #3e2956;
-  }
-  
-  .contactenos-header p {
-    font-size: 1.2rem;
-    color: #2cbfbf;
-  }
-  
-  .map-container {
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .contact-info {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px 0;
-  }
-  
-  .info-item {
-    text-align: center;
-    max-width: 300px;
-  }
-  
-  .info-icon {
-    color: #3e2956;
-    margin-bottom: 10px;
-  }
-  
-  .info-item h3 {
-    font-size: 1.2rem;
-    color: #3e2956;
-  }
-  
-  .info-item p {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .social-media {
-    text-align: center;
-  }
-  
-  .social-media h2 {
     font-size: 2rem;
-    color: #3e2956;
   }
-  
-  .social-media-links {
-    display: flex;
-    justify-content: center;
+
+  .contactenos-header p {
+    font-size: 1rem;
+  }
+
+  .map-container iframe {
+    height: 250px;
+  }
+
+  .contact-info {
+    flex-direction: column;
     gap: 50px;
+    padding: 20px 0;
   }
-  
+
+  .info-item {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .social-media {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .contact-image {
+    margin-left: 0;
+    margin-right: 0;
+    height: 300px;
+  }
+
+  .social-media-links {
+    align-items: center;
+    gap: 20px;
+  }
+
   .social-item img {
-    width: 50px;
-    margin-bottom: 10px;
+    width: 40px;
   }
-  
-  .social-item p {
-    color: #3e2956;
-    font-size: 1.2rem;
-  }
-  
+}

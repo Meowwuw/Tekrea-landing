@@ -21,7 +21,7 @@
 .logo h1 {
   padding-top: 10px;
   color: #F9F8EF;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .logo img {
@@ -55,6 +55,10 @@
 
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
+  .navbar {
+    position: relative;
+    z-index: 1000; /* Un valor muy alto para asegurar que esté siempre por encima */
+  }
   .nav-links {
     display: none;
     flex-direction: column;

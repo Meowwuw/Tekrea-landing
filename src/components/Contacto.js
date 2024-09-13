@@ -5,7 +5,7 @@ import './Contacto.css';
 const Contacto = () => {
   return (
     <section className="contacto" id="contacto">
-      <div className="contact-info">
+      <div className="contacto-info">
         <h3 className="contact-title">Contáctanos</h3>
         <p className="contact-description">
           Si tienes alguna pregunta o deseas más información sobre nuestros

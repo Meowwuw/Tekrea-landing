@@ -3,28 +3,26 @@ import "./Nosotros.css";
 
 const Nosotros = () => {
   return (
-   
-    <section className="nosotros">
-       <div className="nosotros-right"></div>
+    <div className="servicios-vista-wrapper">
+      <div className="decorative-rabbit-nosotros top-right"></div>
+      <section className="servicios-vista">
 
       <div className="about-us-image">
         <img src="assets/Equipo.jpeg" alt="Sobre nosotros" />
       </div>
-
-      <div className="about-us-content">
-        <div className="about-us-text-title">
-          <h2>Sobre Nosotros</h2>
+      <div className="servicios-grid">
+        <div className="servicios-header">
+          <h2>Nuestros Servicios</h2>
         </div>
-        <div className="about-us-text">
+        <div className="servicio-text">
           <p>
-            Lorem Ipsum has been the industry's standard dummy text ever since
-            the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book.
+            is simply dummy text of the printing and typesetting industry. Lorem
+            Ipsum has been the industry's standard dummy text ever since the
+            1500s
           </p>
           <p>
-            It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was
-            popularised in the 1960s with the release of Letraset sheets.
+            when an unknown printer took a galley of type and scrambled it to
+            make a type specimen book.
           </p>
         </div>
       </div>
@@ -55,9 +53,9 @@ const Nosotros = () => {
           Contáctanos
         </a>
       </div>
-
-      <div className="nosotros-left"></div>
     </section>
+    <div className="decorative-rabbit-nosotros bottom-left"></div>
+    </div>
   );
 };
 

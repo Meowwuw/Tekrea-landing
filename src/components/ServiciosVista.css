@@ -1,43 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+.servicios-vista-wrapper {
+  position: relative;
+  background-color: #f9f8ef;
+}
+
 .servicios-vista {
   padding: 2rem 1rem;
   text-align: center;
-  position: relative;
-  background-color: #f9f8ef;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
+  position: relative;
+  z-index: 2;
 }
 
-.servicios-right {
-  content: "";
+.decorative-rabbit {
   position: absolute;
-  top: 0px;
+  width: 400px;
+  height: 600px;
+  background-image: url('../../public/assets/servicios.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  pointer-events: none; 
+}
+
+.decorative-rabbit.top-right {
+  top: 0;
   right: 0;
-  width: 400px;
-  height: 600px;
-  background-image: url("../../public/assets/servicios.png");
   transform: rotate(180deg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center right;
-  opacity: 0.1;
-  z-index: 0;
+  z-index: 1;
 }
 
-.servicios-left::before {
-  content: "";
-  position: absolute;
+.decorative-rabbit.bottom-left {
+  bottom: 0;
   left: 10px;
-  bottom: 0px;
-  width: 400px;
-  height: 600px;
-  background-image: url("../../public/assets/servicios.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center right;
-  opacity: 0.1;
-  z-index: 0;
+  z-index: 1;
 }
 
 .servicios-grid {
@@ -46,6 +44,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .servicios-header h2 {
@@ -145,3 +145,26 @@
   .cta-btn:hover {
     background-color: #25a9a9;
   }
+
+
+  @media (max-width: 768px) {
+    .servicios-vista::before,
+    .servicios-vista::after {
+      width: 200px; /* Reduces the size */
+      height: 300px;
+      opacity: 0.15; /* Slightly reduce opacity on mobile */
+    }
+  
+    .servicios-vista::before {
+      top: 100px; /* Adjust positioning */
+      right: 0;
+    }
+  
+    .servicios-vista::after {
+      bottom: -416px; /* Adjust positioning */
+      left: 0;
+    }
+  }
+  
+
+  
