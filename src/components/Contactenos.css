@@ -1,0 +1,75 @@
+.contactenos {
+    background-color: #f9f8ef;
+    padding: 50px 20px;
+  }
+  
+  .contactenos-header {
+    text-align: center;
+  }
+  
+  .contactenos-header h2 {
+    font-size: 2.5rem;
+    color: #3e2956;
+  }
+  
+  .contactenos-header p {
+    font-size: 1.2rem;
+    color: #2cbfbf;
+  }
+  
+  .map-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .contact-info {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+  }
+  
+  .info-item {
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .info-icon {
+    color: #3e2956;
+    margin-bottom: 10px;
+  }
+  
+  .info-item h3 {
+    font-size: 1.2rem;
+    color: #3e2956;
+  }
+  
+  .info-item p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .social-media {
+    text-align: center;
+  }
+  
+  .social-media h2 {
+    font-size: 2rem;
+    color: #3e2956;
+  }
+  
+  .social-media-links {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+  
+  .social-item img {
+    width: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .social-item p {
+    color: #3e2956;
+    font-size: 1.2rem;
+  }
+  

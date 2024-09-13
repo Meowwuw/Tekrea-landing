@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import './Navbar.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    console.log('Hamburguesa clickeada'); // Para verificar si el evento está funcionando
     setIsOpen(!isOpen);
   };
 
@@ -15,10 +15,19 @@ const Navbar = () => {
         <img src="assets/logo.png" alt="Tekrea Logo" />
         <h1>Tekrea</h1>
       </div>
-      <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#contacto">Contáctenos</a></li>
+      <ul className={`nav-links ${isOpen ? "active" : ""}`}>
+        <li>
+          <Link to="/">Inicio</Link>
+        </li>
+        <li>
+          <Link to="/nosotros">Nosotros</Link>
+        </li>
+        <li>
+          <Link to="/servicios">Servicios</Link>
+        </li>
+        <li>
+          <a href="/contactenos">Contáctenos</a>
+        </li>
       </ul>
       <div className="hamburger" onClick={toggleMenu}>
         <div></div>
