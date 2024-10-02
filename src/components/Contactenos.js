@@ -1,21 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Contactenos.css';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import axios from 'axios';  // Importa Axios
 
 const Contactenos = () => {
+  const [contactData, setContactData] = useState(null); // Estado para almacenar los datos de contacto
+
+  // Obtener los datos de contacto desde la API
+  useEffect(() => {
+    const fetchContactData = async () => {
+      try {
+        const response = await axios.get('https://tekrea-backend-255659019198.us-central1.run.app/api/contact'); // Cambia el URL según corresponda
+        setContactData(response.data); // Actualiza el estado con los datos obtenidos
+        console.log('Datos de contacto:', response.data); // Mostrar en consola los datos
+      } catch (error) {
+        console.error('Error al obtener los datos de contacto:', error);
+      }
+    };
+
+    fetchContactData(); // Llamar a la función para obtener los datos
+  }, []);
+
+  // Si aún no hay datos, muestra un mensaje de carga
+  if (!contactData) {
+    return <div>Cargando datos de contacto...</div>;
+  }
+
+  // Eliminar las comillas dobles adicionales en mapIframe
+  const mapIframe = contactData.mapIframe.replace(/['"]+/g, '');
+
   return (
     <section className="contactenos">
       <div className="gradient-section">
         <div className="contactenos-header">
-          <h2>Ubícanos</h2>
-          <p>
-            Si tienes alguna pregunta o deseas más información sobre nuestros
-            servicios, no dudes en ponerte en contacto con nosotros.
-          </p>
+          <h2>{contactData.contactTitle}</h2>
+          <p>{contactData.contactDescription}</p>
         </div>
         <div className="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31580.20985450101!2d-74.62666087657053!3d-8.349779581933221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a399896dd71a17%3A0x50c58850eb6bbd46!2sBUFEO&#39;S%20CLUB!5e0!3m2!1ses-419!2spe!4v1725496436049!5m2!1ses-419!2spe"
+            src={mapIframe}  // Aquí debes usar la URL sin las comillas dobles
             width="600"
             height="300"
             style={{ border: 0 }}
@@ -23,44 +46,50 @@ const Contactenos = () => {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Mapa de ubicación"
-          ></iframe>
+          />
         </div>
       </div>
 
       <div className="contact-info">
         <div className="info-item">
           <MapPin size={24} className="info-icon" />
-          <h3>Calle Ejemplo 123, Ciudad Ejemplo</h3>
-          <p>It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+          <h3>{contactData.contactAddress}</h3>
+          <p>{contactData.addressDescription}</p>
         </div>
         <div className="info-item">
           <Phone size={24} className="info-icon" />
-          <h3>+51 987 456 321</h3>
-          <p>It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+          <h3>{contactData.contactPhone}</h3>
+          <p>{contactData.phoneDescription}</p>
         </div>
         <div className="info-item">
           <Mail size={24} className="info-icon" />
-          <h3>info@tekrea.com</h3>
-          <p>It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+          <h3>{contactData.contactEmail}</h3>
+          <p>{contactData.emailDescription}</p>
         </div>
       </div>
 
       <div className="social-media">
-        <img src="assets/contact.png" alt="Contact Image" className="contact-image" />
+        <img src="assets/contact.png" alt="Imagen de contacto" className="contact-image" />
         <div>
           <h2>Síguenos en:</h2>
           <div className="social-media-links">
             <div className="social-item">
-              <img src="assets/facebook.png" alt="Facebook" />
-              <p>Tekrea</p>
+              <a href={contactData.socialUrl1} target="_blank" rel="noopener noreferrer">
+                <img src="assets/facebook.png" alt={contactData.socialTitle1} />
+                <p>{contactData.socialTitle1}</p>
+              </a>
             </div>
             <div className="social-item">
-              <img src="assets/instagram.png" alt="Instagram" />
-              <p>@Tekrea</p>
+              <a href={contactData.socialUrl2} target="_blank" rel="noopener noreferrer">
+                <img src="assets/instagram.png" alt={contactData.socialTitle2} />
+                <p>{contactData.socialTitle2}</p>
+              </a>
             </div>
             <div className="social-item">
-              <img src="assets/x.png" alt="Twitter" />
-              <p>@Tekrea</p>
+              <a href={contactData.socialUrl3} target="_blank" rel="noopener noreferrer">
+                <img src="assets/x.png" alt={contactData.socialTitle3} />
+                <p>{contactData.socialTitle3}</p>
+              </a>
             </div>
           </div>
         </div>

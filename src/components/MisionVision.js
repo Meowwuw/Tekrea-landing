@@ -1,22 +1,40 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './MisionVision.css';
+import axios from 'axios'; 
 
 const MisionVision = () => {
+  const [mision, setMision] = useState('');
+  const [vision, setVision] = useState('');
+
+  useEffect(() => {
+    // Función para obtener los datos de misión y visión
+    const fetchMisionVision = async () => {
+      try {
+        const response = await axios.get('https://tekrea-backend-255659019198.us-central1.run.app/api/hero'); 
+        setMision(response.data.mision);  
+        setVision(response.data.vision);  
+      } catch (error) {
+        console.error('Error al obtener los datos de Misión y Visión:', error);
+      }
+    };
+
+    fetchMisionVision();  // Función para obtener los datos
+  }, []);
+
   return (
     <section className="mision-vision">
       <div className="container">
         <div className="mision">
           <h2>Nuestra Misión</h2>
-          <p>Nuestra misión es transformar la forma en que las empresas construyen y escalan aplicaciones web, brindando una plataforma integral y segura que les permita centrarse en la innovación y el desarrollo de características en lugar de la gestión de infraestructura.</p>
+          <p>{mision}</p>  
         </div>
         <div className="vision">
           <h2>Nuestra Visión</h2>
-          <p>Nuestra visión es convertirnos en la plataforma de referencia para el desarrollo web, impulsando la innovación y el crecimiento de nuestros clientes a través de una experiencia fluida y eficiente.</p>
+          <p>{vision}</p>  
         </div>
       </div>
     </section>
   );
 };
 
-export default MisionVision;    
+export default MisionVision;
