@@ -8,7 +8,6 @@ const Hero = () => {
   const [heroButtonText, setHeroButtonText] = useState('');
   const [heroImage, setHeroImage] = useState('');
 
-  // Cargar los datos del hero desde la API
   useEffect(() => {
     const fetchHeroData = async () => {
       try {
@@ -17,7 +16,7 @@ const Hero = () => {
         setHeroTitle(title);
         setHeroDescription(description);
         setHeroButtonText(buttonText);
-        setHeroImage(image);  // Actualizamos solo la imagen principal
+        setHeroImage(image);  
       } catch (error) {
         console.error('Error al obtener los datos del Hero:', error);
       }
@@ -29,12 +28,11 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-content">
-        <h1>{heroTitle || "Innovación Tecnológica al Alcance de tu Empresa"}</h1>
-        <p>{heroDescription || "En Tekrea, transformamos ideas en soluciones digitales poderosas"}</p>
-        <a href="#contacto" className="hero-btn">{heroButtonText || "Contáctanos"}</a>
+        <h1>{heroTitle}</h1>
+        <p>{heroDescription }</p>
+        <a href="#contacto" className="hero-btn">{heroButtonText}</a>
       </div>
       <div className="hero-image">
-        {/* Imagen principal dinámica */}
         <img 
           src={heroImage || 'assets/logo.png'}  
           alt="Tekrea Logo" 
