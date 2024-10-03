@@ -25,13 +25,19 @@
 }
 
 .hero-image-small {
-  display: none; /* Ocultar las orejas en pantallas grandes */
+  display: none; 
+}
+
+.hero-content {
+  max-width: 600px; 
+  margin-right: 2rem; 
 }
 
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
   color: #F9F8EF;
+  line-height: 1.5; 
 }
 
 .hero-btn {
@@ -52,7 +58,7 @@
   background-color: #fff;
 }
 
-/* Ajustes para pantallas pequeñas */
+
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -71,12 +77,12 @@
   }
 
   .hero-image-large {
-    display: none; /* Ocultar el logo grande en pantallas pequeñas */
+    display: none; 
   }
 
   .hero-image-small {
-    display: block; /* Mostrar el logo pequeño en pantallas pequeñas */
-    width: 150px; /* Ajustar el tamaño del logo pequeño */
+    display: block; 
+    width: 150px; 
     margin-top: 2rem;
   }
 }

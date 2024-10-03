@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, ChevronUp, Shield, Code, Cloud, FileText } from 'lucide-react'; // Icons
-import { motion, AnimatePresence } from 'framer-motion'; // Animation
-import axios from 'axios'; // Para hacer peticiones HTTP
-import './ServiciosVista.css'; // Import your styles
+import { ChevronDown, ChevronUp, Shield, Code, Cloud, FileText } from 'lucide-react'; 
+import { motion, AnimatePresence } from 'framer-motion'; 
+import axios from 'axios'; 
+import './ServiciosVista.css'; 
 
-// Component for each expandable service
-function ServicioExpandible({ servicio }) {
+// Servicio expandible que recibe el color por props
+function ServicioExpandible({ servicio, color }) {
   const [expandido, setExpandido] = useState(false);
 
   return (
     <div className="mb-4">
       <button
         onClick={() => setExpandido(!expandido)}
-        className="flex items-center justify-between w-full p-4 text-left bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+        className="flex items-center justify-between w-full p-4 text-left rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+        style={{ backgroundColor: color, borderColor: '#e5e5e5', color: 'white' }}
       >
         <div className="flex items-center">
           {servicio.icono}
@@ -24,12 +25,11 @@ function ServicioExpandible({ servicio }) {
         {expandido && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="mt-2 p-4 bg-gray-50 rounded-lg"
           >
-            {/* Asegúrate de que servicio.subtitles existe y es un array */}
             {Array.isArray(servicio.subtitles) && servicio.subtitles.length > 0 ? (
               servicio.subtitles.map((subtitle, index) => (
                 <div key={index} className="mb-3">
@@ -53,13 +53,11 @@ function ServicioExpandible({ servicio }) {
   );
 }
 
-// Main component for services view
 export default function ServiciosVista() {
   const [servicios, setServicios] = useState([]);
   const [servicesTitle, setServicesTitle] = useState('');
   const [servicesText, setServicesText] = useState('');
 
-  // Fetch services data from backend
   useEffect(() => {
     const fetchServicios = async () => {
       try {
@@ -69,26 +67,30 @@ export default function ServiciosVista() {
         setServicesTitle(servicesData.servicesTitle);
         setServicesText(servicesData.servicesText);
 
-        // Mapea los servicios para incluir íconos
         const mappedServices = servicesData.services.map((service) => {
-          let icono;
+          let icono, color;
           switch (service.title.toLowerCase()) {
             case 'ciberseguridad':
               icono = <Shield className="w-6 h-6" />;
+              color = '#F71973'; // Color para Ciberseguridad
               break;
             case 'fábrica de software':
               icono = <Code className="w-6 h-6" />;
+              color = '#2CBFBF'; // Color para Fábrica de Software
               break;
             case 'cloud':
               icono = <Cloud className="w-6 h-6" />;
+              color = '#3E2956'; // Color para Cloud
               break;
             case 'consultorías':
               icono = <FileText className="w-6 h-6" />;
+              color = '#AD326D'; // Color para Consultorías
               break;
             default:
-              icono = <FileText className="w-6 h-6" />; // Por defecto si no coincide
+              icono = <FileText className="w-6 h-6" />;
+              color = '#AD326D'; // Color por defecto
           }
-          return { ...service, icono };  // Agrega el ícono al objeto del servicio
+          return { ...service, icono, color };
         });
 
         setServicios(mappedServices);
@@ -106,19 +108,17 @@ export default function ServiciosVista() {
       <section className="servicios-vista">
         <h2 className="text-3xl font-bold text-center mb-8">{servicesTitle}</h2>
         
-        {/* Texto introductorio de la sección de servicios */}
         <p className="text-center mb-8 text-lg text-gray-700">
           {servicesText}
         </p>
 
         <div className="max-w-3xl mx-auto">
           {servicios.map((servicio, index) => (
-            <ServicioExpandible key={index} servicio={servicio} />
+            <ServicioExpandible key={index} servicio={servicio} color={servicio.color} />
           ))}
         </div>
       </section>
 
-      {/* Call to Action */}
       <div className="cta bg-gray-200 text-center py-12">
         <h2 className="text-2xl font-bold">Empieza tu proyecto con nosotros</h2>
         <p className="mt-4 text-gray-700">

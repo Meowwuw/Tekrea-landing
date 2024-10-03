@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Nosotros.css";
-import { CheckCircle, Heart, Shield, Lightbulb, RefreshCcw, Award } from 'lucide-react'; // Importar iconos
+import { CheckCircle, Heart, Shield, Lightbulb, RefreshCcw, Award } from 'lucide-react'; 
 
 const Nosotros = () => {
   const [aboutData, setAboutData] = useState({ title: "", text: "", values: [] });
@@ -9,7 +9,7 @@ const Nosotros = () => {
   useEffect(() => {
     const fetchAboutData = async () => {
       try {
-        const response = await axios.get('https://tekrea-backend-255659019198.us-central1.run.app/api/about'); // Asegúrate de que la URL esté correcta
+        const response = await axios.get('https://tekrea-backend-255659019198.us-central1.run.app/api/about');
         setAboutData(response.data);
       } catch (error) {
         console.error("Error al obtener los datos de Sobre Nosotros:", error);
@@ -17,16 +17,15 @@ const Nosotros = () => {
     };
 
     fetchAboutData();
-  }, []);  // El array vacío asegura que la solicitud solo se haga una vez, cuando el componente se monte
+  }, []);
 
-  // Asocia cada valor con su icono correspondiente
   const iconMapping = {
-    Eficiencia: <CheckCircle size={32} color="#F71973" />,
-    Pasión: <Heart size={32} color="#2CBFBF" />,
-    Integridad: <Shield size={32} color="#3E2956" />,
-    Innovación: <Lightbulb size={32} color="#F71973" />,
-    Adaptación: <RefreshCcw size={32} color="#2CBFBF" />,
-    Compromiso: <Award size={32} color="#3E2956" />,
+    Eficiencia: <CheckCircle size={32} color="#fff" />,
+    Pasión: <Heart size={32} color="#fff" />,
+    Integridad: <Shield size={32} color="#fff" />,
+    Innovación: <Lightbulb size={32} color="#fff" />,
+    Adaptación: <RefreshCcw size={32} color="#fff" />,
+    Compromiso: <Award size={32} color="#fff" />,
   };
 
   return (
@@ -39,10 +38,10 @@ const Nosotros = () => {
 
         <div className="servicios-grid">
           <div className="servicios-header">
-            <h2>{aboutData.title || "Sobre Nosotros"}</h2> {/* Muestra el título obtenido de la API */}
+            <h2>{aboutData.title || "Sobre Nosotros"}</h2> 
           </div>
           <div className="servicio-text">
-            <p>{aboutData.text || "Texto predeterminado de ejemplo..."}</p> {/* Muestra el texto obtenido de la API */}
+            <p>{aboutData.text || "Texto predeterminado de ejemplo..."}</p> 
           </div>
         </div>
 
@@ -51,9 +50,13 @@ const Nosotros = () => {
           <div className="valores-grid">
             {aboutData.values.map((valor, index) => (
               <div className="valor-card" key={index}>
-                {iconMapping[valor.title] || <CheckCircle size={32} />}  {/* Icono dinámico */}
-                <h3>{valor.title}</h3>
-                <p>{valor.description}</p>
+                <div className="valor-front">
+                  {iconMapping[valor.title] || <CheckCircle size={32} />} 
+                  <h3>{valor.title}</h3>
+                </div>
+                <div className="valor-back">
+                  <p>{valor.description}</p>
+                </div>
               </div>
             ))}
           </div>

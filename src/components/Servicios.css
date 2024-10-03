@@ -55,7 +55,6 @@
   color: #F9F8EF;
 }
 
-/* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
   .service-cards {
     flex-direction: column;
