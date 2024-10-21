@@ -47,8 +47,8 @@
 
 .contact-info {
   display: flex;
-  justify-content: center; /* Cambiado de space-between a center */
-  gap: 150px; /* Añadir un espacio entre los elementos */
+  justify-content: center;
+  gap: 150px; 
   text-align: center;
   padding: 50px 0;
   width: 100%;
@@ -56,6 +56,9 @@
 
 .info-item {
   max-width: 300px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .info-icon {
@@ -66,6 +69,7 @@
 .info-item h3 {
   font-size: 1.2rem;
   color: #3E2956;
+  margin-bottom: 5px; 
 }
 
 .info-item p {
@@ -77,8 +81,8 @@
 .social-media {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Esto asegura que el contenido esté alineado correctamente */
-  padding-left: 50px; /* Añade más espacio a la izquierda */
+  justify-content: flex-start; 
+  padding-left: 50px; 
   padding-bottom: 100px;
 }
 
@@ -90,19 +94,19 @@
 
 .social-media-links {
   display: flex;
-  flex-direction: column; /* Para alinear los elementos en columna */
+  flex-direction: column; 
   gap: 50px;
 
 }
 
 .social-item img {
   width: 50px;
-  margin-right: 15px; /* Espacio entre el icono de la red social y el texto */
+  margin-right: 15px; 
 }
 
 .social-item {
   display: flex;
-  align-items: center; /* Centra verticalmente los iconos con los textos */
+  align-items: center; 
 }
 
 .social-item p {
@@ -112,7 +116,7 @@
 
 .contact-image {
   margin-left: 200px;
-  margin-right: 150px; /* Espacio entre la imagen y el texto de redes sociales */
+  margin-right: 150px; 
   height: 450px;
 }
 
